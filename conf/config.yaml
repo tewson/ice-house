@@ -1,0 +1,30 @@
+#
+# Look here for more config file examples:
+# https://github.com/verdaccio/verdaccio/tree/master/conf
+#
+
+storage: /verdaccio/storage/data
+plugins: /verdaccio/plugins
+
+web:
+  title: Verdaccio
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+
+packages:
+  "@*/*":
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+
+  "**":
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+
+logs:
+  - { type: stdout, format: pretty, level: http }
