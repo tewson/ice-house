@@ -2,13 +2,12 @@ version: "3"
 
 services:
   verdaccio:
-    image: verdaccio/verdaccio
     container_name: verdaccio
+    build: .
     ports:
       - "4873:4873"
     volumes:
       - "verdaccio_storage:/verdaccio/storage"
-      - "./conf:/verdaccio/conf"
 
 volumes:
   verdaccio_storage:
