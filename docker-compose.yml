@@ -1,6 +1,11 @@
 version: "3"
 
 services:
+  ice_house:
+    build: .
+    container_name: ice_house
+    depends_on:
+      - verdaccio
   verdaccio:
     image: verdaccio/verdaccio
     container_name: verdaccio
@@ -12,3 +17,6 @@ services:
 
 volumes:
   verdaccio_storage:
+
+networks:
+  default:
